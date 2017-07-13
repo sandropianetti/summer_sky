@@ -1,84 +1,160 @@
+<!DOCTYPE html>
 <html>
-
-    <head>
-    
-        
-        <script src="https://aframe.io/releases/0.6.0/aframe.min.js"></script>
+  <head>
+    <title>summersky</title>
+    <meta name="description" content="summersky">
       
+<link href="css/styles.css" rel="stylesheet" type="text/css" media="all" />
+      
+<!--    <script src="libs/aframe-v0.6.0.min.js"></script>-->
+<!--      <script src="libs/d3.min.js"></script>-->
+      
+    <script src="https://aframe.io/releases/0.6.0/aframe.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+      
+   <script src="js/script.js"></script>
+
+  </head>
+  <body>
+
+      
+      
+    <a-scene>
         
-    
-
-    
-    </head>
-
-    
-    <body>
-        <a-scene>
-            <a-assets>
-                <a-asset-item id="palla3-obj" src="palla3.obj">
-                <img id="sky" src="sky.jpg">
-                
-                
-                </a-asset-item>
-    
+    <a-assets>
+    <a-asset-item id="sphere" src="sphere.obj"></a-asset-item>
+    <a-asset-item>
+                <img id="sky" src="sky.jpg">   </a-asset-item>
+  
   </a-assets>
-        <a-sky src="#sky"></a-sky>
+
+        <a-sky color = "#CCC" src="#sky"></a-sky>
+
+<a-entity id = "all">      
+<a-entity id = "front">
+    <a-entity position="0 0 -40">
+        <a-entity class = "pm" obj-model="obj: #sphere" scale = ".5 .3 .5" position="-5 2 -1" material="color: #999; opacity: .3" sound="src: url(soundbadbubu.mp3); autoplay: true; poolSize:100; loop:true; volume:.8"></a-entity>
+
+        <a-entity class = "no" obj-model="obj: #sphere" scale = ".3 .25 .3" position="6 1 -1" material="color: #B8333D; opacity: .3" sound="src: url(soundbadzigzig.mp3); autoplay: true; poolSize:100; volume:.1; loop:true"></a-entity>
     
-        <a-entity>
-            
-            
-            
-            <a-entity position="0 0 0" >
-            
-            
-            
-           <a-entity obj-model="obj: #palla3-obj" material="color: blue; opacity: .3" scale="2 0.6 2" sound="src: url(sound.mp3); autoplay: true"></a-entity>
-
-            
-            </a-entity>
-                <a-animation attribute="position" 
-                             from="0 1 -50" 
-                             to="0 1 50"
-                             dur="20000"
-                        
-                            repeat="indefinite"
-
-                             >
-            
-            
-                </a-animation>
-            </a-entity>
-            
-            
-            <a-entity>
-           
-            <a-entity obj-model="obj: #palla3-obj" material="color: green; opacity: .3" scale="0.4 0.4 0.6" sound="src: url(soundgood.mp3); autoplay: true; poolSize:4"></a-entity>
-
-            
-            
-                <a-animation attribute="position" 
-                             from="-80 1 -50" 
-                             to="80 1 50"
-                             dur="10000"
-                       
-                            repeat="indefinite"
-
-                            >
-            
-            
-                </a-animation>
-         
+        <a-entity class = "oz" obj-model="obj: #sphere" scale = ".7 .5 .7" position="0 3 -1" material="color: #16417C; opacity: .3" sound="src: url(soundbadwubwub.mp3); autoplay: true; poolSize:100; volume:.8; loop:true"></a-entity>  
+    </a-entity> 
     
-         </a-entity>
+    <a-animation 
+            attribute="position"
+            dur="10000"
+            delay="2000"
+            fill="forwards"
+            direction="alternate"
             
-            
-         
-            
-            
-            
+            to="-0 0 40"
+            repeat="13"
+            ease= "easeOutQuart"
+               >
+    </a-animation>
+
+</a-entity>
+        
+        
+<a-entity id = "left">
+    <a-entity position="-40 0 0">
+        <a-entity class = "pm" obj-model="obj: #sphere" scale = ".5 .3 .5" position="-5 2 -1" material="color: #999; opacity: .3" ></a-entity>
+
+        <a-entity class = "no" obj-model="obj: #sphere" scale = ".3 .25 .3" position="6 1 -1" material="color: #B8333D; opacity: .3" ></a-entity>
+    
+        <a-entity class = "oz" obj-model="obj: #sphere" scale = ".7 .5 .7" position="0 3 -1" material="color: #16417C; opacity: .3" ></a-entity>
+    </a-entity>   
+   
+    <a-animation 
+            attribute="position"
+            dur="10000"
+            delay="2000"
+            fill="forwards"
+            direction="alternate"
+            to="40 0 0"
+            repeat="13"
+            ease= "easeOutQuart"
+               >
+    </a-animation>
+
+</a-entity>
+
+<a-entity id = "back">
+    <a-entity position="0 0 40">
+        <a-entity class = "pm" obj-model="obj: #sphere" scale = ".5 .3 .5" position="-5 2 -1" material="color: #999; opacity: .3" ></a-entity>
+
+        <a-entity class = "no" obj-model="obj: #sphere" scale = ".3 .25 .3" position="6 1 -1" material="color: #B8333D; opacity: .3" ></a-entity>
+    
+        <a-entity class = "oz" obj-model="obj: #sphere" scale = ".7 .5 .7" position="0 3 -1" material="color: #16417C; opacity: .3" ></a-entity>
+    </a-entity>   
+   
+    <a-animation 
+            attribute="position"
+            dur="10000"
+            delay="2000"
+            fill="forwards"
+            direction="alternate"
+            to="-0 0 -40"
+            repeat="13"
+            ease= "easeOutQuart"
+               >
+    </a-animation>
+
+</a-entity>
+        
+
+<a-entity id = "right">
+    <a-entity position="40 0 0">
+        <a-entity class = "pm" obj-model="obj: #sphere" scale = ".5 .3 .5" position="-5 2 -1" material="color: #999; opacity: .3" ></a-entity>
+
+        <a-entity class = "no" obj-model="obj: #sphere" scale = ".3 .25 .3" position="6 1 -1" material="color: #B8333D; opacity: .3" ></a-entity>
+    
+        <a-entity class = "oz" obj-model="obj: #sphere" scale = ".7 .5 .7" position="0 3 -1" material="color: #16417C; opacity: .3" ></a-entity>
+    </a-entity>
+    
+   
+    <a-animation 
+            attribute="position"
+            dur="10000"
+            delay="2000"
+            fill="forwards"
+            direction="alternate"
+            to="-40 0 0"
+            repeat="13"
+            ease= "easeOutQuart"
+               >
+    </a-animation>
+</a-entity>
+        
+<!--
+    <a-animation 
+            attribute="rotation"
+            dur="2000"
+            delay="12000"
+            fill="forwards"
+            to="0 1080 0"
+            repeat="0"
+               >
+    </a-animation>
+       
+    <a-animation 
+            attribute="position"
+            dur="10000"
+            delay="14000"
+            fill="forwards"
+      
+            to="0 40 0"
+            repeat="0"
+            ease= "easeInQuart"
+               >
+       </a-animation>
+-->
+
+</a-entity>
+      <a-entity id="text" text="value: 06.07.2017; color: #999" 
+                position="3 6 -8" scale="8 8 8"></a-entity>
     </a-scene>
+      
 
-    </body>
-
-
+  </body>
 </html>
